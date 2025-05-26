@@ -38,7 +38,7 @@ interface Player {
         row: number;
         col: number;
     };
-    currentMap: mongoose.Types.ObjectId;//ref to the modified map
+    currentMap: string;//ref to the modified map (personnal ID)
     movementPerTurn: Number;
     health: Number;
 }
@@ -47,7 +47,7 @@ const player = mongoose.model<Player>("Player", new Schema({
     inventory: { type: Object, required: true },
     modifiedMaps: { type: [Object], required: true },
     position: { type: Object, required: true },
-    currentMap: { type: mongoose.Schema.Types.ObjectId, ref: 'Map', required: true },
+    currentMap: { type: String, required: true },
     movementPerTurn: { type: Number, required: true },
     health: { type: Number, required: true },
 }));
