@@ -4,6 +4,10 @@ interface Tool {
     usage: number;
     power: number;
 }
+interface consumable {
+    impactStat: string;
+    quantity: number;
+}
 interface Resource {stone: number;
     iron?: number;
     silver?: number;
@@ -14,6 +18,7 @@ interface Resource {stone: number;
 
 interface Inventory {
     resources: Resource;
+    consumables: consumable[];
     tools: {
         pickaxe: Tool;
         axe: Tool;

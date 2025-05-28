@@ -3,7 +3,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 export interface Cell {
     row: number;
     col: number;
-    type: 'floor' | 'wall' | 'exit' | 'unbreakable';
+    type: 'floor' | 'wall' | 'exit' | 'unbreakable' | 'chest';
     resources?: {
         stone: number;
         iron?: number;
@@ -26,6 +26,7 @@ export interface Map {
     height: number;
     cells: Cell[];
     exits: Exits;
+    chest: boolean;
 }
 export const baseMap = mongoose.model<Map>("Map", new Schema({
     name: { type: String, required: true },
@@ -33,6 +34,7 @@ export const baseMap = mongoose.model<Map>("Map", new Schema({
     height: { type: Number, required: true },
     cells: [{ type: Object, required: true }],
     exits: { type: Object, required: true },
+    chest: { type: Boolean, required: true },
 }));
 
 
