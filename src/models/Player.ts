@@ -34,7 +34,17 @@ interface Inventory {
   tools: {
     pickaxe?: Tool;
   } | null;
-  equiped: Tool | Block | null;
+  equiped:
+    | {
+        pickaxe?: Tool;
+      }
+    | {
+        block?: Block;
+      }
+    | {
+        consumable?: consumable;
+      }
+    | null;
 }
 interface ModifiedMap {
   personalID: string; //playerID+mapID
