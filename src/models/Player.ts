@@ -7,6 +7,7 @@ interface Tool {
 }
 interface consumable {
   impactStat: string;
+  impactValue: number;
   quantity: number;
 }
 interface Resource {
@@ -17,6 +18,7 @@ interface Resource {
   tin?: number;
   zinc?: number;
   crystal?: number;
+  copper?: number;
 }
 interface Block {
   stoneBlock?: number;
@@ -40,9 +42,6 @@ interface Inventory {
       }
     | {
         block?: Block;
-      }
-    | {
-        consumable?: consumable;
       }
     | null;
 }
@@ -68,6 +67,7 @@ interface Player {
   currentMap: string; //ref to the modified map (personnal ID)
   movementPerTurn: Number;
   health: Number;
+  recoveryCode: Number;
 }
 
 const player = mongoose.model<Player>(
@@ -79,6 +79,7 @@ const player = mongoose.model<Player>(
     currentMap: { type: String, required: true },
     movementPerTurn: { type: Number, required: true },
     health: { type: Number, required: true },
+    recoveryCode: { type: Number, required: true },
   })
 );
 

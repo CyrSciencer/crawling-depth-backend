@@ -3,7 +3,7 @@ import mongoose, { Schema, Document } from "mongoose";
 export interface Cell {
   row: number;
   col: number;
-  type: "floor" | "wall" | "exit" | "unbreakable" | "chest";
+  type: "floor" | "wall" | "exit" | "unbreakable" | "chest" | "trap";
   resources?: {
     stone: number;
     iron?: number;
@@ -12,6 +12,7 @@ export interface Cell {
     tin?: number;
     zinc?: number;
     crystal?: number;
+    copper?: number;
   };
 }
 export interface Exits {
