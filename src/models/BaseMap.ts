@@ -1,5 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
+console.log("🗺️ BaseMap model module loaded");
+
 export interface Cell {
   row: number;
   col: number;
@@ -28,6 +30,8 @@ export interface Map {
   exits: Exits;
   chest: boolean;
 }
+
+console.log("🏗️ Creating BaseMap mongoose model...");
 export const baseMap = mongoose.model<Map>(
   "Map",
   new Schema({
@@ -37,3 +41,5 @@ export const baseMap = mongoose.model<Map>(
     chest: { type: Boolean, required: true },
   })
 );
+
+console.log("✅ BaseMap model created successfully");

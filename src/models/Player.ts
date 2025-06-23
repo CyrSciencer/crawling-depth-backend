@@ -1,5 +1,8 @@
 import mongoose, { Schema } from "mongoose";
 import { Cell } from "./BaseMap";
+
+console.log("👤 Player model module loaded");
+
 interface Tool {
   charge: number;
   power: number;
@@ -70,6 +73,7 @@ interface Player {
   recoveryCode: Number;
 }
 
+console.log("🏗️ Creating Player mongoose model...");
 const player = mongoose.model<Player>(
   "Player",
   new Schema({
@@ -82,5 +86,7 @@ const player = mongoose.model<Player>(
     recoveryCode: { type: Number, required: true },
   })
 );
+
+console.log("✅ Player model created successfully");
 
 export default player;
