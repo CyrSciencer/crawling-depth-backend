@@ -58,6 +58,7 @@ interface ModifiedMap {
     left: mongoose.Types.ObjectId | null; //if not explored, base map, if explored, modified map
     right: mongoose.Types.ObjectId | null; //if not explored, base map, if explored, modified map
   };
+  firstTime: boolean;
 }
 interface Player {
   inventory: Inventory;
